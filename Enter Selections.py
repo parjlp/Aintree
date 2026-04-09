@@ -20,8 +20,7 @@ df_fgs = df_fgs["Player"].tolist()
 
 def submit_details():
     if not st.session_state["name"].strip():
-        st.warning("Please enter your full name before submitting.")
-        return
+        return  # just return, let the form handle the warning message
 
     pick_list = {
         "Name": st.session_state["name"],
