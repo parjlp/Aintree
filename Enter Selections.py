@@ -30,7 +30,7 @@ def get_sheet():
         ]
     )
     client = gspread.authorize(creds)
-    return client.open("Aintree Selections").sheet1
+    return client.open("1vBWWgRsrN1VD1MfdKatQz3uGfWWU_BKotM742cb3o2s").sheet1
 
 
 def submit_details():
