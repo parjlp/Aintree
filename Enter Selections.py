@@ -19,6 +19,10 @@ df_fgs = pd.read_csv("fgs.csv", encoding="latin-1")
 df_fgs = df_fgs["Player"].tolist()
 
 def submit_details():
+    if not st.session_state["name"].strip():
+        st.warning("Please enter your full name before submitting.")
+        return
+
     pick_list = {
         "Name": st.session_state["name"],
         "12:45": st.session_state["12:45"],
@@ -30,7 +34,8 @@ def submit_details():
         "FGS":   st.session_state["FSG"],
     }
     df = pd.DataFrame([pick_list])
-    df.to_csv("selections.csv", mode="a", header=False, index=False)
+    file_exists = os.path.isfile("selections.csv")
+    df.to_csv("selections.csv", mode="a", header=not file_exists, index=False)
 
 st.title("Enter Your Selections For Grand National Day 2026")
 st.divider()
@@ -54,5 +59,7 @@ with st.form("Aintree Submit"):
     st.divider()
     submitted = st.form_submit_button("Submit", on_click=submit_details)
     if submitted:
-        st.success("Submitted successfully!")
-        
+        if st.session_state["name"].strip():
+            st.success("Submitted successfully!")
+        else:
+            st.warning("Please enter your full name before submitting.")
