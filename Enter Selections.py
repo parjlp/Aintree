@@ -32,6 +32,7 @@ def get_sheet():
     client = gspread.authorize(creds)
     return client.open("Aintree Selections").sheet1
 
+
 def submit_details():
     if not st.session_state["name"].strip():
         return
@@ -47,11 +48,9 @@ def submit_details():
         "FGS":   st.session_state["FSG"],
     }
 
-    # Save to Google Sheets
     sheet = get_sheet()
     sheet.append_row(list(picks.values()))
 
-    # Send email
     send_email(picks)
 
 st.title("Enter Your Selections For Grand National Day 2026")
@@ -61,3 +60,22 @@ with st.form("Aintree Submit"):
     name = st.text_input(key="name", label="Please enter your full name")
     st.divider()
     pick_1245 = st.selectbox(key="12:45", options=df_1245, label="12:45 Maghull Novice's Chase (Grade 1)")
+    st.divider()
+    pick_1320 = st.selectbox(key="13:20", options=df_1320, label="13:20 Handicap Hurdle (Class 1)")
+    st.divider()
+    pick_1355 = st.selectbox(key="13:55", options=df_1355, label="13:55 Mersey Novice's Hurdle (Grade 1)")
+    st.divider()
+    pick_1430 = st.selectbox(key="14:30", options=df_1430, label="14:30 Handicap Chase (Class 1)")
+    st.divider()
+    pick_1505 = st.selectbox(key="15:05", options=df_1505, label="15:05 Liverpool Hurdle (Grade 1)")
+    st.divider()
+    pick_1600 = st.selectbox(key="16:00", options=df_1600, label="16:00 Grand National Handicap Chase (Class 1)")
+    st.divider()
+    pick_fgs = st.selectbox(key="FSG", options=df_fgs, label="Liverpool vs Fulham First Goal Scorer")
+    st.divider()
+    submitted = st.form_submit_button("Submit", on_click=submit_details)
+    if submitted:
+        if st.session_state["name"].strip():
+            st.success("Submitted successfully!")
+        else:
+            st.warning("Please enter your full name before submitting.")
