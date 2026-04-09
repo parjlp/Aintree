@@ -51,7 +51,6 @@ def submit_details():
     sheet = get_sheet()
     sheet.append_row(list(picks.values()))
 
-    send_email(picks)
 
 st.title("Enter Your Selections For Grand National Day 2026")
 st.divider()
