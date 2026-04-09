@@ -3,19 +3,19 @@ import pandas as pd
 
 
 
-df_1245 = pd.read_csv("C:/Users/parjl/Desktop/AppDevelopment/Aintree/1245.csv", encoding="latin-1")
+df_1245 = pd.read_csv("1245.csv", encoding="latin-1")
 df_1245 = df_1245["Name"].tolist()
-df_1320 = pd.read_csv("C:/Users/parjl/Desktop/AppDevelopment/Aintree/1320.csv", encoding="latin-1")
+df_1320 = pd.read_csv("1320.csv", encoding="latin-1")
 df_1320 = df_1320["Name"].tolist()
-df_1355 = pd.read_csv("C:/Users/parjl/Desktop/AppDevelopment/Aintree/1355.csv", encoding="latin-1")
+df_1355 = pd.read_csv("1355.csv", encoding="latin-1")
 df_1355 = df_1355["Name"].tolist()
-df_1430 = pd.read_csv("C:/Users/parjl/Desktop/AppDevelopment/Aintree/1430.csv", encoding="latin-1")
+df_1430 = pd.read_csv("1430.csv", encoding="latin-1")
 df_1430 = df_1430["Name"].tolist()
-df_1505 = pd.read_csv("C:/Users/parjl/Desktop/AppDevelopment/Aintree/1505.csv", encoding="latin-1")
+df_1505 = pd.read_csv("1505.csv", encoding="latin-1")
 df_1505 = df_1505["Name"].tolist()
-df_1600 = pd.read_csv("C:/Users/parjl/Desktop/AppDevelopment/Aintree/1600.csv", encoding="latin-1")
+df_1600 = pd.read_csv("1600.csv", encoding="latin-1")
 df_1600 = df_1600["Name"].tolist()
-df_fgs = pd.read_csv("C:/Users/parjl/Desktop/AppDevelopment/Aintree/fgs.csv", encoding="latin-1")
+df_fgs = pd.read_csv("fgs.csv", encoding="latin-1")
 df_fgs = df_fgs["Player"].tolist()
 
 def submit_details():
